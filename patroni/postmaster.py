@@ -116,7 +116,8 @@ class PostmasterProcess(psutil.Process):
         proc = call_self(['pg_ctl_start', pgcommand, '-D', data_dir,
                           '--config-file={}'.format(conf)] + options, close_fds=True,
                          preexec_fn=os.setsid, stdout=subprocess.PIPE,
-                         env={p: os.environ[p] for p in ('PATH', 'LC_ALL', 'LANG') if p in os.environ})
+                         env={p: os.environ[p] for p in ('PATH', 'LC_ALL', 'LANG',
+                         'NSS_WRAPPER_PASSWD', 'NSS_WRAPPER_GROUP', 'LD_PRELOAD') if p in os.environ})
         pid = int(proc.stdout.readline().strip())
         proc.wait()
         logger.info('postmaster pid=%s', pid)

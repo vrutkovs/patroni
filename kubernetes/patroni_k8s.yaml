@@ -17,7 +17,7 @@ spec:
       serviceAccountName: patronidemo
       containers:
       - name: *cluster_name
-        image: patroni  # docker build -t patroni .
+        image: docker.io/soltysh/patroni  # docker build -t patroni .
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8008
@@ -129,7 +129,7 @@ metadata:
   name: patronidemo
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: Role
 metadata:
   name: patronidemo
@@ -169,7 +169,7 @@ rules:
   - watch
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: RoleBinding
 metadata:
   name: patronidemo
