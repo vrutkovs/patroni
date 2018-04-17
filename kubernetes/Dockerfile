@@ -4,7 +4,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && echo 'APT::Install-Recommends "0";\nAPT::Install-Suggests "0";' > /etc/apt/apt.conf.d/01norecommend \
     && apt-get update -y \
     && apt-get upgrade -y \
-    && apt-get install -y git curl jq python-psycopg2 python-yaml python-requests python-six python-pysocks \
+    && apt-get install -y git curl jq python-psycopg2 python-yaml python-requests python-six python-socks \
         python-dateutil python-pip python-prettytable python-wheel python-psutil python locales \
         openssh-client gcc build-essential cmake \
 
