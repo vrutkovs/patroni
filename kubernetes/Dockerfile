@@ -25,6 +25,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 EXPOSE 5432 8008
 ENV LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
+    PATH=/usr/lib/postgresql/10/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\
     NSS_WRAPPER_PASSWD=/tmp/passwd \
     NSS_WRAPPER_GROUP=/tmp/group
 
